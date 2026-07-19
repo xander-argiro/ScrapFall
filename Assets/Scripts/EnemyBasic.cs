@@ -1,13 +1,7 @@
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class EnemyBasic : MonoBehaviour
 {
-
-    public AudioSource victorySound;
-    public AudioSource gameOverSound;
-    public AudioSource pickupItem;
-    public AudioSource pickupKey;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

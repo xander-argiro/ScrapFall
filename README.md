@@ -1,11 +1,11 @@
 # ScrapFall (name pending)
-What I have:
-- Basic level built using ProBuilder
-- Basic player movement
-- Basic item interaction
-- 2 items that can be picked up, including a key that is required to access the end point
-- Basic audio assets for some actions
-- Basic UI that shows if a particualar item has been collected
+Changelog:
+- Fixed Audio startup bug
+- Switched to Cinemachine camera. Still needs some fine tuning to get right
+- Ending door now leads to a new area with an enemy and a sword
+- Pressing interact on the Enemy will cause a Game Over, unless the player has the sword, in which case the enemy object will be destroyed
+- New ending door is blocked by the enemy
+- Added an HP system
 
 My vision:
 - Moving beyond even the final project submission, I'd like to expand this game over time. I want to turn this game into a roguelike with procedural level generation, with enemies like Ultrakill, movement like Titanfall, and item crafting / weapon classes like Terraria.

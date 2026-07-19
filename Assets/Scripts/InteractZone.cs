@@ -6,14 +6,17 @@ public class InteractZone : MonoBehaviour
     public enum InteractionType
     {
         Item,
-        Door
+        Door,
+        Enemy,
+        End
     }
     public InteractionType interactionType = InteractionType.Item;
     public enum Items
     {
         NOT_AN_ITEM,
         Key,
-        Potion
+        Potion,
+        Sword
     }
     public Items itemType = Items.NOT_AN_ITEM;
 
@@ -42,18 +45,46 @@ public class InteractZone : MonoBehaviour
 
     private void Update()
     {
+        GameManager gameManager = FindAnyObjectByType<GameManager>();
+
         if (isPlayerInZone && Keyboard.current.eKey.wasPressedThisFrame)
         {
-
             switch (interactionType)
             {
+                
                 case InteractionType.Item:
-                    ItemPickup();
+                    ItemPickup(gameManager);
+                    break;
+                
+                case InteractionType.Door:
+
+                    if (gameManager.hasKey)
+                    {
+                        Debug.Log("Door opened!");
+                        Destroy(gameObject);
+                    }
+                    else
+                    {
+                        Debug.Log("You need a key to open this door.");
+                    }
+
                     break;
 
-                case InteractionType.Door:
-                    GameManager gameManager = FindAnyObjectByType<GameManager>();
+                case InteractionType.Enemy:
+                    if (gameManager.hasSword)
+                    {
+                        Debug.Log("Enemy defeated!");
+                        Destroy(gameObject);
+                    }
+                    else
+                    {
+                        PlayerMovement player = FindAnyObjectByType<PlayerMovement>();
+                        player.Life_Current -= 25; // Reduce player's health
+                    }
 
+                    break;
+
+                case InteractionType.End:
                     if (gameManager.hasKey)
                     {
                         gameManager.Victory();
@@ -68,15 +99,8 @@ public class InteractZone : MonoBehaviour
         }
     }
 
-    private void ItemPickup()
+    private void ItemPickup(GameManager gameManager)
     {
-        GameManager gameManager = FindAnyObjectByType<GameManager>();
-        if (gameManager == null)
-        {
-            Debug.LogError("GameManager not found in the scene.");
-            return;
-        }
-
         AudioManager audioManager = FindAnyObjectByType<AudioManager>();
 
         switch (itemType)
@@ -97,7 +121,15 @@ public class InteractZone : MonoBehaviour
                 audioManager.pickupItem.Play();
 
                 Debug.Log("Picked up a potion!");
-                
+                break;
+
+            case Items.Sword:
+                gameManager.swordText.text = "Sword: Yes";
+                gameManager.hasSword = true;
+
+                audioManager.pickupItem.Play();
+
+                Debug.Log("Picked up a sword!");
                 break;
 
             default:

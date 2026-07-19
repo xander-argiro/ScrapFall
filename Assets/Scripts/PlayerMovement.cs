@@ -17,6 +17,9 @@ public class PlayerMovement : MonoBehaviour
     public float velocityY;
     public float velocityX;
 
+    public int Life_Current = 100;
+    public int Life_Max = 100;
+
     private CharacterController controller;
     private Vector2 moveInput;
 
@@ -42,6 +45,12 @@ public class PlayerMovement : MonoBehaviour
         Vector3 lookDirection = cameraTransform.forward;
         lookDirection.y = 0f;
         transform.forward = lookDirection.normalized;
+
+        if (Life_Current <= 0 && !gameOver)
+        {
+            GameManager gameManager = FindAnyObjectByType<GameManager>();
+            gameManager.GameOver();
+        }
 
         if (!gameOver)
         {
