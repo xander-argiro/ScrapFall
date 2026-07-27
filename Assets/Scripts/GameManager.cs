@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public TMP_Text victoryText;
     public TMP_Text gameOverText;
+    public TMP_Text restartText;
 
     public TMP_Text hpText;
     public TMP_Text keyText;
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
 
         victoryText.gameObject.SetActive(false);
         gameOverText.gameObject.SetActive(false);
+        restartText.gameObject.SetActive(false);
     }
 
     public void Update()
@@ -40,6 +42,10 @@ public class GameManager : MonoBehaviour
         audioManager.victorySound.Play();
 
         victoryText.gameObject.SetActive(true);
+        restartText.gameObject.SetActive(true);
+
+        PlayerMovement player = FindAnyObjectByType<PlayerMovement>();
+        player.gameOver = true;
 
         Time.timeScale = 0f; // Pause the game
     }
@@ -50,6 +56,7 @@ public class GameManager : MonoBehaviour
         audioManager.gameOverSound.Play();
 
         gameOverText.gameObject.SetActive(true);
+        restartText.gameObject.SetActive(true);
 
         PlayerMovement playerMovement = FindAnyObjectByType<PlayerMovement>();
         if (playerMovement != null)

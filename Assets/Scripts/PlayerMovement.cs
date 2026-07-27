@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -81,6 +82,11 @@ public class PlayerMovement : MonoBehaviour
             movement.y = velocityY;
 
             controller.Move(movement * Time.deltaTime);
+        }
+        if (gameOver && Keyboard.current.rKey.wasPressedThisFrame)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Time.timeScale = 1f; // Resume the game
         }
     }
 

@@ -1,31 +1,25 @@
 # ScrapFall (name pending)
-Changelog:
-- Fixed Audio startup bug
-- Switched to Cinemachine camera. Still needs some fine tuning to get right
-- Ending door now leads to a new area with an enemy and a sword
-- Pressing interact on the Enemy will cause a Game Over, unless the player has the sword, in which case the enemy object will be destroyed
-- New ending door is blocked by the enemy
-- Added an HP system
+Concept:
+- This project is devoid of anything in my vision that would make it unique, but the current prototype version lays the groundwork for what is to come. I want to turn this game into a roguelike with procedural level generation, with enemies like Ultrakill, movement like Titanfall, and item crafting / weapon classes like Terraria. A project with a scope like this is far too big for this class, so I decided to keep it to two rooms with a simple goal: collect they key, get the sword, defeat the enemy.
 
-My vision:
-- Moving beyond even the final project submission, I'd like to expand this game over time. I want to turn this game into a roguelike with procedural level generation, with enemies like Ultrakill, movement like Titanfall, and item crafting / weapon classes like Terraria.
+Controls:
+- Move: WASD
+- Look: Mouse
+- Interact: E
 
-To do (in no particular order):
+Future Plans:
 - Implement player model animations
-- Overhaul the movement system
+- Overhaul the movement system (dash, wall climb, double jump, etc.)
 - Add an inventory sytem
-- Add enemies
-- Add pretty UI assets
-- Make a bunch of level prefabs
-- Implement procedural level generation
-- Add usable weapons
 - Add a crafting system
-
-Known bugs:
-- All the audio plays on startup. I'm not sure why, so help would be appreciated.
-- The camera will clip through terrain as if it isn't there. I will later implement logic to avoid this or switch to Cinemachine.
+- Implement procedural room generation
+- Add a combat system with enemies, bosses, multiple weapon types, and equipment that affect movement and combat
+- Implement procedural level generation
 
 Assets used:
 - https://rgsdev.itch.io/free-3d-modular-low-poly-assets-for-prototyping-by-rgsdev
 - https://quaternius.itch.io/universal-animation-library-2
 - https://ci.itch.io/400-sounds-pack
+
+Itch: https://swankified0.itch.io/scrapfall
+YouTube: 
