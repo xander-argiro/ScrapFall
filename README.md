@@ -21,5 +21,6 @@ Assets used:
 - https://quaternius.itch.io/universal-animation-library-2
 - https://ci.itch.io/400-sounds-pack
 
-Itch: https://swankified0.itch.io/scrapfall
-YouTube Demo: https://youtu.be/4RjJ3rnKE7M
+Links:
+- Itch: https://swankified0.itch.io/scrapfall
+- YouTube Demo: https://youtu.be/4RjJ3rnKE7M
